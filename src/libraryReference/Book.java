@@ -30,13 +30,16 @@ public class Book {
     }
 
     public String toString() {
-        return "Имя книги: " + this.name + "\n" + getPublisher().toString() + "\n" + "Год издания: " +
+        return "Имя книги: " + this.name + "\n" + "Автор: " + getPublisher().toString() + "\n" + "Год издания: " +
                 this.yearOfBookPublication;
     }
 
     public boolean equals(Object other) {
-        if (this.getClass() != other.getClass()) {
+        if (other == null || getClass() != other.getClass()) {
             return false;
+        }
+        if (this == other) {
+            return true;
         }
         Book b2 = (Book) other;
         return name.equals(b2.name) && publisher.equals(b2.publisher) && yearOfBookPublication == b2.yearOfBookPublication;

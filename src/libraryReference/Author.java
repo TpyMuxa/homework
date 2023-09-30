@@ -20,15 +20,19 @@ public class Author {
     }
 
     public String toString() {
-        return "Автор: " + this.firstName + " " + this.lastName;
+
+        return this.firstName + " " + this.lastName;
     }
 
     public boolean equals(Object other) {
-        if (this.getClass() != other.getClass()) {
+        if (other == null || getClass() != other.getClass()) {
             return false;
         }
+        if (this == other) {
+            return true;
+        }
         Author a2 = (Author) other;
-        return firstName.equals(a2.firstName) && lastName.equals(a2.lastName);
+        return a2.firstName.equals(firstName) && a2.lastName.equals(lastName);
     }
 
     public int hashCode() {
